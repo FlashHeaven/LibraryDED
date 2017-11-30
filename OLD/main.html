@@ -5,7 +5,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body>
-    Hallo <script>GetName();</script>
+    <h1>Hallo</h1><h1 id="fireName" onchange="GetName(fireName)"></h1>
 
 
 
@@ -21,9 +21,13 @@
         messagingSenderId: "766122845610"
   };
   firebase.initializeApp(config);
+
+    
+
 </script>
+<script src="js/index.js"></script>
 
 </body>
-<script src="js/index.js"></script>
+
 
 </html>
