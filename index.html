@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
+    
+Naam: <input type="text" id="naam"><br> 
+<input type="button" value="Doorgaan" onclick="AddUser(document.getElementById('naam').value)"/>
+
+
+
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+        apiKey: "AIzaSyB5RmYm9tT94J0coMROAQwKo_Csn6XAato",
+        authDomain: "suprisefactory.firebaseapp.com",
+        databaseURL: "https://suprisefactory.firebaseio.com",
+        projectId: "suprisefactory",
+        storageBucket: "suprisefactory.appspot.com",
+        messagingSenderId: "766122845610"
+  };
+  firebase.initializeApp(config);
+</script>
+
+</body>
+<script src="js/index.js"></script>
+
+</html>
