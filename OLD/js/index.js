@@ -1,13 +1,5 @@
 var rootRef = firebase.database().ref().child('Gebruikers');
 
-function AddUser(name){
-    rootRef.set({
-        Naam: name,
-        ID: CreateID()
-    });
-    location.href = "main.html";
-};
-
 function CreateID(){
   var text = "";
   var possible = "0123456789";
@@ -18,31 +10,37 @@ function CreateID(){
   return text; 
 };
 
+function AddUser(name){
+    rootRef.push({
+           "Naam": name,
+            "ConnectID": CreateID(),
+            "Groep": {
+                "Naam": "none",
+                "ID": "none"
+            }
+        });
+    location.href = "main.html";
+};
 
-
-function GetName(name){
-    rootRef.on('value', function(datasnapshot){
-       var ReturnName = name.innerText = datasnapshot.val();                  
-    });
-    
-    return ReturnName;
-}
-    
-
-               
-
-
-/*
-$('#clear_button').click(function(){
-        $('#info1').val('');
-        $('#info2').val('');
-    
+rootRef.orderByKey().limitToLast(1).on('child_added',function(snapshot) {
+  console.log('new record', snapshot.val); 
 });
 
-$('#load_button').click(function(){
-        rootRef.on('value', function(snapshot){
-            $('#info1').val(snapshot.child('info1').val());
-            $('#info2').val(snapshot.child('info2').val());
-        });
+
+function getInfo(name){
     
-});*/
+
+    rootRef.on('value', gotData, errData);
+
+    function gotData(data){
+        console.log(data.val());
+     }
+
+    function errData(err){
+        console.log('Error!');
+        console.log(err);
+    }
+
+}
+
+
