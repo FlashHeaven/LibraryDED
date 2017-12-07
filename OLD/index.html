@@ -6,7 +6,11 @@
 </head>
 <body>
     
-Naam: <input type="text" id="naam"><br> 
+Naam: <input type="text" id="naam"><br>
+Selecteer: <select id="Permissions">
+  <option value="Beheerder">Beheerder</option>
+  <option value="Vriend">Vriend</option>
+</select>
 <input type="button" value="Doorgaan" onclick="AddUser(document.getElementById('naam').value)"/>
 
 
@@ -27,5 +31,16 @@ Naam: <input type="text" id="naam"><br>
 
 </body>
 <script src="js/index.js"></script>
+        <script>
+                
+        function GetUserSettings(Naam){
+            var Name = Naam;
+            var e = document.getElementById('Permissions');
+            var Permission = e.options[e.selectedIndex].value;
+            var user = new CreateUser();
+            user.init({naam: Name, rechten: Permission });
+        }
+        
+    </script>
 
 </html>
