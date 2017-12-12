@@ -4,19 +4,22 @@
 <title>Page Title</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
-<body>
+<body onload="LoadMain(1)">
 
 <h1>Welkom bij SurpiseFactory!</h1>
 <h3>Maak uw eigen account aan en begin met vastleggen van de mooiste momenten!</h3>
     
 Naam: <input type="text" id="naam"><br>
 Selecteer: <select id="Permissions">
-  <option value="Beheerder">Beheerder</option>
   <option value="Vriend">Vriend</option>
+  <option value="Beheerder">Beheerder</option>
 </select>
 <input type="button" value="Doorgaan" onclick="var e = document.getElementById('Permissions');
 var Rechten = e.options[e.selectedIndex].value; var Admin = new CreateAdmin(document.getElementById('naam').value, Rechten);
         Admin.init();"/>
+
+<h3 id="ConnectedPerson"></h3>
+
 
 <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
 <script>
@@ -31,7 +34,36 @@ var Rechten = e.options[e.selectedIndex].value; var Admin = new CreateAdmin(docu
   };
   firebase.initializeApp(config);
 </script>
+<script src="js/index.js" type="text/javascript">
+</script>
+
+<script>
+    
+    
+    
+    
+    
+    function LoadMain(limit){
+
+    rootRef.orderByKey().limitToLast(limit).on('child_added',function(snapshot) {
+      console.log('new record', snapshot.val());
+        var naam = snapshot.child("Naam").val();
+        var connectid = snapshot.child("ConnectID").val();
+        console.log(naam);
+        console.log(connectid);
+
+        $("#ConnectedPerson").append("Verbinden met: " + naam + connectid);
+
+
+
+    });
+    $(document).ready(function() {
+   ;LoadMain(1);
+})
+};
+
+    
+</script>
 
 </body>
-<script src="js/index.js"></script>
 </html>
