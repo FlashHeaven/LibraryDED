@@ -14,8 +14,7 @@ Selecteer: <select id="Permissions">
   <option value="Beheerder">Beheerder</option>
   <option value="Vriend">Vriend</option>
 </select>
-<input type="button" value="Doorgaan" onclick="var e = document.getElementById('Permissions');
-var Rechten = e.options[e.selectedIndex].value; var Admin = new CreateAdmin(document.getElementById('naam').value, Rechten);
+<input type="button" value="Doorgaan" onclick="var Admin = new CreateAdmin();
         Admin.init();"/>
 
 <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>

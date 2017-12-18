@@ -1,10 +1,14 @@
 var rootRef = firebase.database().ref().child('Gebruikers');
 
-var CreateAdmin = function(Name, Permission){
+var CreateAdmin = function(){
+    
+    var nameAccount = document.getElementById('naam').value;
+    var e = document.getElementById('Permissions');
+    var Rechten = e.options[e.selectedIndex].value;
     
     var Settings = {
-        naam: Name,
-        rechten: Permission,
+        naam: nameAccount,
+        rechten: Rechten,
         status: 'Online',    
     };
 
