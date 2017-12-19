@@ -1,4 +1,5 @@
 var rootRef = firebase.database().ref().child('Gebruikers');
+var friendRef = firebase.database().ref().child('Vrienden');
 
 var CreateAdmin = function(){
     
@@ -24,6 +25,7 @@ var CreateAdmin = function(){
       var possible = "0123456789";
 
       for (var i = 0; i < 1; i++)
+        text += "Vriendtoevoegen";
         text += possible.charAt(Math.floor(Math.random() * possible.length));
 
       return text; 
@@ -32,26 +34,28 @@ var CreateAdmin = function(){
 
     function AddUser(){
 
-        rootRef.push({
+        rootRef.set({
                "Rechten": Settings.rechten,
                "Naam": Settings.naam,
                 "ConnectID": CreateID(),
-                "Status": Settings.status,
-                "Groep": {
-                    "Naam": "none",
-                    "ID": "none"
-                }
+                "Status": Settings.status
             });
         location.href = "main.html";
     }; 
 }
 
-var CreateExtra = function(Name, Permission){
+var CreateExtra = function(){
+    
+    var nameAccount = document.getElementById('naam').value;
+    var e = document.getElementById('Permissions');
+    var Rechten = e.options[e.selectedIndex].value;
+    var ConnectCode = document.getElementById('koppeling').value;
     
     var Settings = {
-        naam: Name,
-        rechten: Permission,
-        status: 'Online',    
+        naam: nameAccount,
+        rechten: Rechten,
+        status: 'Online', 
+        ConnectFriend: ConnectCode
     };
 
     var init = function() {
@@ -74,15 +78,11 @@ var CreateExtra = function(Name, Permission){
 
     function AddUser(){
 
-        rootRef.push({
+        friendRef.push({
+               "Connection": Settings.ConnectFriend,
                "Rechten": Settings.rechten,
                "Naam": Settings.naam,
-                "ConnectID": CreateID(),
                 "Status": Settings.status,
-                "Groep": {
-                    "Naam": "none",
-                    "ID": "none"
-                }
             });
         location.href = "main.html";
     }; 
