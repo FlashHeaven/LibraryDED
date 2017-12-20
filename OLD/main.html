@@ -28,7 +28,7 @@
 </script>
    
 <script>
-function LoadMain(limit){
+function LoadMain(limit, CreateTable, CreateFriend){
 
     rootRef.orderByKey().limitToLast(limit).on('child_added',function(snapshot) {
       console.log('new record', snapshot.val());
@@ -38,7 +38,7 @@ function LoadMain(limit){
         var status = snapshot.child("Status").val();
         //console.log(naam);
 
-        if (CreateTable = 'Yes'){
+        if (CreateTable == 'Yes'){
                 $("#fireName").append("Hallo " + naam);
         $("#table_body").append("<tr><td>" + rechten + "</td><td>" + naam + "</td><td>" + connectid + "</td><td>" + status + "</td></tr>");
         }
@@ -48,7 +48,28 @@ function LoadMain(limit){
     });
 };
 
-Load = LoadMain(1, 'Yes');
+urlRef.on('value', gotData, errData);
+
+function gotData(data){
+    var URL = data.child("URL").val();
+    if (URL == '/index.html'){
+        Load = LoadMain(1, 'Yes');
+        console.log('Ja');
+    }
+    else if (URL == '/add.html'){
+        Load = LoadMain(1, 'Yes');
+        console.log('Nee');
+    }
+    else{
+        Load = LoadMain(1, 'Yes');
+    }
+};
+
+function errData(err){
+    console.log('Error!');
+    console.log(err);
+};
+
 
 window.onbeforeunload = closingCode;
 function closingCode(){

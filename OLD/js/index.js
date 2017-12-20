@@ -1,5 +1,6 @@
 var rootRef = firebase.database().ref().child('Gebruikers');
 var friendRef = firebase.database().ref().child('Vrienden');
+var urlRef = firebase.database().ref().child('VorigeURL');
 
 var CreateAdmin = function(){
     
@@ -31,15 +32,22 @@ var CreateAdmin = function(){
       return text; 
     };
     
+    function UpdateURL(){
+        urlRef.set({
+           "URL": "/index.html"
+        });
+    };
+    
 
     function AddUser(){
 
-        rootRef.set({
+        rootRef.push({
                "Rechten": Settings.rechten,
                "Naam": Settings.naam,
                 "ConnectID": CreateID(),
                 "Status": Settings.status
             });
+        UpdateURL();
         location.href = "main.html";
     }; 
 }
@@ -75,6 +83,12 @@ var CreateExtra = function(){
       return text; 
     };
     
+    function UpdateURL(){
+        urlRef.set({
+           "URL": "/add.html"
+        });
+    };
+    
 
     function AddUser(){
 
@@ -84,9 +98,13 @@ var CreateExtra = function(){
                "Naam": Settings.naam,
                 "Status": Settings.status,
             });
+        UpdateURL();
         location.href = "main.html";
     }; 
+    
 }
+
+
 
 
 
