@@ -48,16 +48,18 @@ function LoadMain(limit, CreateTable, CreateFriend){
     });
 };
 
+// Niet werkend gekregen
+/*
 urlRef.on('value', gotData, errData);
 
-function gotData(data){
-    var URL = data.child("URL").val();
+function gotData(){
+    var URL = snapchot.child("URL").val();
     if (URL == '/index.html'){
         Load = LoadMain(1, 'Yes');
         console.log('Ja');
     }
     else if (URL == '/add.html'){
-        Load = LoadMain(1, 'Yes');
+        Load = LoadMain(2, 'Yes');
         console.log('Nee');
     }
     else{
@@ -68,14 +70,8 @@ function gotData(data){
 function errData(err){
     console.log('Error!');
     console.log(err);
-};
+};*/
 
-
-window.onbeforeunload = closingCode;
-function closingCode(){
-   // do something...
-   return null;
-}
     
 </script>
     <table style="border: 1px solid black;">

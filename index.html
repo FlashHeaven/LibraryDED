@@ -1,71 +1,38 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Library Bas van Montfort</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<head>
+<title>Page Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+</head>
+<body>
 
-
-    </head>
-    <body>
-        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
-        <script>
-          // Initialize Firebase
-          var config = {
-                apiKey: "AIzaSyB5RmYm9tT94J0coMROAQwKo_Csn6XAato",
-                authDomain: "suprisefactory.firebaseapp.com",
-                databaseURL: "https://suprisefactory.firebaseio.com",
-                projectId: "suprisefactory",
-                storageBucket: "suprisefactory.appspot.com",
-                messagingSenderId: "766122845610"
-          };
-          firebase.initializeApp(config);
-        </script>
-        
-        Humidy: <humidity></humidity><br>
-        Temperature: <temperature></temperature><br>
-        Clock: <clock></clock><br>
-        
-        <script type="text/javascript">
-        var h = document.querySelector('humidity');
-        var t = document.querySelector('temperature');
-        var c = document.querySelector('clock');
-        
-        var pad = function(x){
-            return x < 10 ? '0'+x : x;
-        }
-        
-        var ShowClock = function(){
-            var d = new Date();
-            var h = pad(d.getHours());
-            var m = pad(d.getMinutes());
-            var s = pad(d.getSeconds());
-            
-            c.innerHTML = [h,m,s].join(':');
-        }
-        
-        setInterval(ShowClock,1000);
-        
-        var ClockBase = firebase.database().ref().child('Clock');
-        ClockBase.on('child_changed', function(snapchot){
-            data = snapchot.val();
-            c.innerHTML = data.clock;
-        });
-            
-        
-        
-        </script>
+<!-- Form om mensen toe te voegen -->
+<h1>Welkom bij SurpiseFactory!</h1>
+<h3>Maak uw eigen account aan en begin met vastleggen van de mooiste momenten!</h3>
     
-    
-    
-    
-    
+Naam: <input type="text" id="naam"><br>
+Selecteer: <select id="Permissions">
+  <option value="Beheerder">Beheerder</option>
+  <option value="Vriend">Vriend</option>
+</select>
+<input type="button" value="Doorgaan" onclick="var Admin = new CreateAdmin();
+        Admin.init();"/>
 
-        
-    </body>
-    <script src="js/index.js"></script>
+<!-- Koppeling met Firebase -->
+<script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+        apiKey: "AIzaSyB5RmYm9tT94J0coMROAQwKo_Csn6XAato",
+        authDomain: "suprisefactory.firebaseapp.com",
+        databaseURL: "https://suprisefactory.firebaseio.com",
+        projectId: "suprisefactory",
+        storageBucket: "suprisefactory.appspot.com",
+        messagingSenderId: "766122845610"
+  };
+  firebase.initializeApp(config);
+</script>
 
-
-
-
-
+</body>
+<script src="js/index.js"></script>
 </html>
