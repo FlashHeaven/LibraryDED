@@ -1,8 +1,8 @@
-*-------------------------------- GROUP PEOPLE FRAMEWORK --------------------------------*
+*-------------------------------- GROUP PEOPLE LIBRARY ----------------------------------*
 ==================================== BAS VAN MONTFORT ====================================
 __________________________________________________________________________________________
 *INTRO*
-Met deze framework kan je mensen heel makkelijk toevoegen aan een online JSON-database genaamd, Firebase. Hierdoor kan je ook aanpassen voor je eigen projecten.
+Met deze library kan je mensen heel makkelijk toevoegen aan een online JSON-database genaamd, Firebase. Hierdoor kan je ook aanpassen voor je eigen projecten.
 
 
 
@@ -15,8 +15,7 @@ ________________________________________________________________________________
 
 __________________________________________________________________________________________
 *DEMO*
-http://basvanmontfort.nl/DED/GroupPeopleFramework
-
+http://basvanmontfort.nl/DED/GroupPeopleLibrary
 
 
 
@@ -34,17 +33,21 @@ ________________________________________________________________________________
 <input type="button" value="Doorgaan"/>
 ````
 
-4. Voeg onclick toe aan deze knop
+4. Voeg onclick toe aan deze knop, deze moet een CreateAdmin of CreateExtra aanmaken
 ````html
 <input type="button" value="Doorgaan" onclick=""/>
 ````
+
+5. Maak een account aan op Firebase en maak koppeling met je code, dit kan in de library gezet worden, maar kan ook in HTML bestand
+
+6. Vervolg is het mogelijk om de waardes: "naam", "connectid", "rechten" en "status" uit te lezen. (Dit kan in een tabel gebeuren, maar kan je helemaal naar eigen keus invullen)
 
 
 __________________________________________________________________________________________
 *IMPLEMENTEREN*
 Maak een object aan van "CreateAdmin"* of "CreateExtra"**, afhankelijk van type account. 
 *CreateAdmin is hoofdgebruiker
-*CreateExtra kan elk account zijn wat toegevoegd wordt aan een hoofdaccount, maar met minder permissie
+**CreateExtra kan elk account zijn wat toegevoegd wordt aan een hoofdaccount, maar met minder permissie
 
 Afhankelijk van de keuze, roep je .init() aan, waarna het account aangemaakt wordt en toegevoegd wordt aan de database
 ````html
@@ -63,43 +66,6 @@ ________________________________________________________________________________
 *VRAGEN?*
 Als je vragen hebt kan je dit sturen naar info@basvanmontfort.nl
 
-Veel plezier met mijn framework!
+Veel plezier met mijn library!
 © BAS VAN MONTFORT 2017
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX OUDE SAMENVATTING PROJECT XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX OUDE SAMENVATTING PROJECT XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX OUDE SAMENVATTING PROJECT XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-
-In deze repository ga ik bijhouden waar ik bezig mee ben geweest voor Library opdracht van 
-DED voor Semester 4. Op deze manier kan ik makkelijk juiste versies bij elkaar houden en 
-proces inzichtelijk maken voor bezoekers.
-
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
